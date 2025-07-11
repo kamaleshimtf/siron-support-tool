@@ -21,6 +21,6 @@ public class SupportToolService {
         logger.info("Creating temporary directory");
         Path basePath = operatingSystemHelper.getApplicationPath();
 
-        return "zip file path";
+        return "zip file pathjkehcveluih";
     }
 }
