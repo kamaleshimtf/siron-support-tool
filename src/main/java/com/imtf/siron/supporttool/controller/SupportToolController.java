@@ -13,7 +13,6 @@ public class SupportToolController {
 
     @GET
     public String getAllSupportToolDetails(){
-        supportToolService.createTempDirectory();
-        return "Support Tool Details";
+        return supportToolService.createTempDirectory();
     }
 }
