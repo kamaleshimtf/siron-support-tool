@@ -1,5 +1,6 @@
 package com.imtf.siron.supporttool.system;
 
+import com.imtf.siron.supporttool.exception.InvalidPathException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,17 +11,18 @@ public class OperatingSystemHelper {
 
     private final Logger logger = LoggerFactory.getLogger(OperatingSystemHelper.class);
 
-    public Path getApplicationPath(){
-        try{
+    public Path getApplicationPath() {
+        try {
             return Paths.get("").toAbsolutePath();
-        }
-        catch(SecurityException exception){
+        } catch (SecurityException exception) {
             logger.error("SecurityException: Unable to access the current directory due to security restrictions.{}", exception.getMessage());
-            return Paths.get(".");
-        }
-        catch(Exception exception){
+            throw exception;
+        } catch (InvalidPathException exception) {
+            logger.error("InvalidPathException: Unable to access the current directory due to invalid path {}", exception.getMessage());
+            throw exception;
+        } catch (Exception exception) {
             logger.error("Unexpected exception occurred while determining application path.{}", exception.getMessage());
-            return Paths.get(".");
+            throw exception;
         }
     }
 }

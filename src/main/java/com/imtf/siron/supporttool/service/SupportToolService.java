@@ -1,5 +1,6 @@
 package com.imtf.siron.supporttool.service;
 
+import com.imtf.siron.supporttool.constant.SupportToolConstant;
 import com.imtf.siron.supporttool.system.FileHelper;
 import com.imtf.siron.supporttool.system.OperatingSystemHelper;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -12,14 +13,20 @@ import java.nio.file.Path;
 public class SupportToolService {
 
     private final Logger logger = LoggerFactory.getLogger(SupportToolService.class);
+    private Path zipDirectoryPath;
 
     OperatingSystemHelper operatingSystemHelper = new OperatingSystemHelper();
     FileHelper fileHelper = new FileHelper();
 
-    public String createTempDirectory(){
+    public String createTempDirectory() {
 
         logger.info("Creating temporary directory");
         Path basePath = operatingSystemHelper.getApplicationPath();
+
+        if(fileHelper.checkFilePermission(basePath)) {
+            zipDirectoryPath = basePath.resolve(SupportToolConstant.TEMP_DIR_NAME);
+            System.out.println(zipDirectoryPath);
+        }
 
         return "zip file pathjkehcveluih";
     }
