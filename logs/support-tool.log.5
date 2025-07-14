@@ -1,7 +1,112 @@
-2025-07-11 16:44:19,136 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [io.quarkus] (Quarkus Main Thread) siron-support-tool 1.0-SNAPSHOT on JVM (powered by Quarkus 3.24.3) started in 0.144s. Listening on: http://localhost:8080
-2025-07-11 16:44:19,136 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
-2025-07-11 16:44:19,136 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [cdi, rest, smallrye-context-propagation, vertx]
-2025-07-11 16:44:19,137 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 0.343s 
-2025-07-11 16:44:19,142 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [com.imt.sir.sup.ser.SupportToolService] (executor-thread-1) Creating temporary directory
-2025-07-11 16:44:22,698 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [com.imt.sir.sup.sys.FileHelper] (executor-thread-1) Directory /Users/kamalesh.g/Documents/Office/siron-support-tool/tbsupport exists. Deleting...
-2025-07-11 16:44:22,700 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[1790] INFO  [com.imt.sir.sup.sys.FileHelper] (executor-thread-1) Created directory: /Users/kamalesh.g/Documents/Office/siron-support-tool/tbsupport
+2025-07-12 21:23:37,093 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[20316] ERROR [io.qua.dep.dev.IsolatedDevModeMain] (vert.x-worker-thread-1) Failed to start quarkus [Error Occurred After Shutdown]: io.quarkus.dev.appstate.ApplicationStartException: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.dev.appstate.ApplicationStateNotification.waitForApplicationStart(ApplicationStateNotification.java:63)
+	at io.quarkus.runner.bootstrap.StartupActionImpl.runMainClass(StartupActionImpl.java:147)
+	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartApp(IsolatedDevModeMain.java:206)
+	at io.quarkus.deployment.dev.IsolatedDevModeMain.restartCallback(IsolatedDevModeMain.java:187)
+	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:555)
+	at io.quarkus.deployment.dev.RuntimeUpdatesProcessor.doScan(RuntimeUpdatesProcessor.java:455)
+	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$6.call(VertxHttpHotReplacementSetup.java:163)
+	at io.quarkus.vertx.http.runtime.devmode.VertxHttpHotReplacementSetup$6.call(VertxHttpHotReplacementSetup.java:150)
+	at io.vertx.core.impl.ContextImpl.lambda$executeBlocking$4(ContextImpl.java:192)
+	at io.vertx.core.impl.ContextInternal.dispatch(ContextInternal.java:270)
+	at io.vertx.core.impl.ContextImpl$1.execute(ContextImpl.java:221)
+	at io.vertx.core.impl.WorkerTask.run(WorkerTask.java:56)
+	at org.jboss.threads.ContextHandler$1.runWith(ContextHandler.java:18)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.doRunWith(EnhancedQueueExecutor.java:2651)
+	at org.jboss.threads.EnhancedQueueExecutor$Task.run(EnhancedQueueExecutor.java:2630)
+	at org.jboss.threads.EnhancedQueueExecutor.runThreadBody(EnhancedQueueExecutor.java:1622)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1589)
+	at org.jboss.threads.DelegatingRunnable.run(DelegatingRunnable.java:11)
+	at org.jboss.threads.ThreadLocalResettingRunnable.run(ThreadLocalResettingRunnable.java:11)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+	Suppressed: java.lang.reflect.InvocationTargetException
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+		at io.quarkus.runner.bootstrap.StartupActionImpl.runMainClass(StartupActionImpl.java:176)
+		... 19 more
+	Caused by: io.smallrye.config.ConfigValidationException: Configuration validation failed:
+	java.util.NoSuchElementException: SRCFG00014: The config property support.create-list-of-files is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-rcc is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-aml is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.folder-filter is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.file-name-filter is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-kyc is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-embargo is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.content-filter is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-zeidon is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-ras is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-system-info is required but it could not be found in any config source
+	SRCFG00050: support.getRccClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:27 does not map to any root
+	SRCFG00050: support.getEmbClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:25 does not map to any root
+	SRCFG00050: support.createListOfFiles in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:11 does not map to any root
+	SRCFG00050: support.getSystemInfo in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:20 does not map to any root
+	SRCFG00050: support.fileNameFilter in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:32 does not map to any root
+	SRCFG00050: support.getRasClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:26 does not map to any root
+	SRCFG00050: support.getKycClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:24 does not map to any root
+	SRCFG00050: support.getProdInfoAml in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:14 does not map to any root
+	SRCFG00050: support.getAmlClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:23 does not map to any root
+	SRCFG00050: support.getProdInfoEmbargo in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:17 does not map to any root
+	SRCFG00050: support.contentFilter in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:30 does not map to any root
+	SRCFG00050: support.getProdInfoRcc in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:19 does not map to any root
+	SRCFG00050: support.getProdInfoRas in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:18 does not map to any root
+	SRCFG00050: support.folderFilter in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:31 does not map to any root
+	SRCFG00050: support.getProdInfoZeidon in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:16 does not map to any root
+	SRCFG00050: support.getProdInfoKyc in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:15 does not map to any root
+		at io.smallrye.config.SmallRyeConfig.buildMappings(SmallRyeConfig.java:136)
+		at io.smallrye.config.SmallRyeConfig.<init>(SmallRyeConfig.java:90)
+		at io.smallrye.config.SmallRyeConfigBuilder.build(SmallRyeConfigBuilder.java:772)
+		at io.quarkus.runtime.generated.Config.readConfig(Unknown Source)
+		at io.quarkus.runtime.generated.Config.createRunTimeConfig(Unknown Source)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+		... 21 more
+Caused by: java.lang.RuntimeException: Failed to start quarkus
+	at io.quarkus.runner.ApplicationImpl.doStart(Unknown Source)
+	at io.quarkus.runtime.Application.start(Application.java:101)
+	at io.quarkus.runtime.ApplicationLifecycleManager.run(ApplicationLifecycleManager.java:119)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:80)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:51)
+	at io.quarkus.runtime.Quarkus.run(Quarkus.java:144)
+	at io.quarkus.runner.GeneratedMain.main(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at io.quarkus.runner.bootstrap.StartupActionImpl$1.run(StartupActionImpl.java:121)
+	... 1 more
+Caused by: io.smallrye.config.ConfigValidationException: Configuration validation failed:
+	java.util.NoSuchElementException: SRCFG00014: The config property support.create-list-of-files is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-rcc is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-aml is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.folder-filter is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.file-name-filter is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-kyc is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-embargo is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.content-filter is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-zeidon is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-prod-info-ras is required but it could not be found in any config source
+	java.util.NoSuchElementException: SRCFG00014: The config property support.get-system-info is required but it could not be found in any config source
+	SRCFG00050: support.getRccClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:27 does not map to any root
+	SRCFG00050: support.getEmbClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:25 does not map to any root
+	SRCFG00050: support.createListOfFiles in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:11 does not map to any root
+	SRCFG00050: support.getSystemInfo in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:20 does not map to any root
+	SRCFG00050: support.fileNameFilter in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:32 does not map to any root
+	SRCFG00050: support.getRasClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:26 does not map to any root
+	SRCFG00050: support.getKycClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:24 does not map to any root
+	SRCFG00050: support.getProdInfoAml in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:14 does not map to any root
+	SRCFG00050: support.getAmlClients in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:23 does not map to any root
+	SRCFG00050: support.getProdInfoEmbargo in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:17 does not map to any root
+	SRCFG00050: support.contentFilter in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:30 does not map to any root
+	SRCFG00050: support.getProdInfoRcc in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:19 does not map to any root
+	SRCFG00050: support.getProdInfoRas in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:18 does not map to any root
+	SRCFG00050: support.folderFilter in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:31 does not map to any root
+	SRCFG00050: support.getProdInfoZeidon in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:16 does not map to any root
+	SRCFG00050: support.getProdInfoKyc in PropertiesConfigSource[source=file:/Users/kamalesh.g/Documents/Office/siron-support-tool/target/classes/application.properties]:15 does not map to any root
+	at io.smallrye.config.SmallRyeConfig.buildMappings(SmallRyeConfig.java:136)
+	at io.smallrye.config.SmallRyeConfig.<init>(SmallRyeConfig.java:90)
+	at io.smallrye.config.SmallRyeConfigBuilder.build(SmallRyeConfigBuilder.java:772)
+	at io.quarkus.runtime.generated.Config.readConfig(Unknown Source)
+	at io.quarkus.runtime.generated.Config.createRunTimeConfig(Unknown Source)
+	at io.quarkus.deployment.steps.RuntimeConfigSetup.deploy(Unknown Source)
+	... 11 more
+
+2025-07-12 21:23:37,107 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[20316] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Live reload total time: 0.446s 
+2025-07-12 21:24:46,865 m-kv07txtvyn /Library/Java/JavaVirtualMachines/jdk-24.jdk/Contents/Home/bin/java[20316] INFO  [io.qua.dep.dev.RuntimeUpdatesProcessor] (vert.x-worker-thread-1) Restarting quarkus due to changes in SupportToolConfig.class.
