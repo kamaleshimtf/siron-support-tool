@@ -1,9 +1,11 @@
 package com.imtf.siron.supporttool.constant;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+@ApplicationScoped
 public class SensitiveFileContents {
 
     private final List<String> sensitiveListKeyWords = new ArrayList<>();
