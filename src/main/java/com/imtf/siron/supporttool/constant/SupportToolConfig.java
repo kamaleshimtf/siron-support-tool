@@ -2,79 +2,108 @@ package com.imtf.siron.supporttool.constant;
 
 import io.smallrye.config.ConfigMapping;
 
+import java.util.List;
+
 @ConfigMapping(prefix = "support")
 public class SupportToolConfig {
 
-    private boolean createListOfFiles;
-    private boolean getProdInfoAml;
-    private boolean getProdInfoKyc;
-    private boolean getProdInfoZeidon;
-    private boolean getProdInfoEmbargo;
-    private boolean getProdInfoRas;
-    private boolean getProdInfoRcc;
-    private boolean getSystemInfo;
+    private String createListOfFiles;
+    private String getProdInfoAml;
+    private String getProdInfoKyc;
+    private String getProdInfoZeidon;
+    private String getProdInfoEmbargo;
+    private String getProdInfoRas;
+    private String getProdInfoRcc;
+    private String getSystemInfo;
+    private List<String> contentFilter;
+    private List<String> folderFilter;
+    private List<String> fileNameFilter;
 
-    public boolean isCreateListOfFiles() {
+    public String isCreateListOfFiles() {
         return createListOfFiles;
     }
 
-    public void setCreateListOfFiles(boolean createListOfFiles) {
+    public void setCreateListOfFiles(String createListOfFiles) {
         this.createListOfFiles = createListOfFiles;
     }
 
-    public boolean isGetProdInfoAml() {
+    public String isGetProdInfoAml() {
         return getProdInfoAml;
     }
 
-    public void setGetProdInfoAml(boolean getProdInfoAml) {
+    public void setGetProdInfoAml(String getProdInfoAml) {
         this.getProdInfoAml = getProdInfoAml;
     }
 
-    public boolean isGetProdInfoKyc() {
+    public String isGetProdInfoKyc() {
         return getProdInfoKyc;
     }
 
-    public void setGetProdInfoKyc(boolean getProdInfoKyc) {
+    public void setGetProdInfoKyc(String getProdInfoKyc) {
         this.getProdInfoKyc = getProdInfoKyc;
     }
 
-    public boolean isGetProdInfoZeidon() {
+    public String isGetProdInfoZeidon() {
         return getProdInfoZeidon;
     }
 
-    public void setGetProdInfoZeidon(boolean getProdInfoZeidon) {
+    public void setGetProdInfoZeidon(String getProdInfoZeidon) {
         this.getProdInfoZeidon = getProdInfoZeidon;
     }
 
-    public boolean isGetProdInfoEmbargo() {
+    public String isGetProdInfoEmbargo() {
         return getProdInfoEmbargo;
     }
 
-    public void setGetProdInfoEmbargo(boolean getProdInfoEmbargo) {
+    public void setGetProdInfoEmbargo(String getProdInfoEmbargo) {
         this.getProdInfoEmbargo = getProdInfoEmbargo;
     }
 
-    public boolean isGetProdInfoRas() {
+    public String isGetProdInfoRas() {
         return getProdInfoRas;
     }
 
-    public void setGetProdInfoRas(boolean getProdInfoRas) {
+    public void setGetProdInfoRas(String getProdInfoRas) {
         this.getProdInfoRas = getProdInfoRas;
     }
 
-    public boolean isGetProdInfoRcc() {
+    public String isGetProdInfoRcc() {
         return getProdInfoRcc;
     }
 
-    public void setGetProdInfoRcc(boolean getProdInfoRcc) {
+    public void setGetProdInfoRcc(String getProdInfoRcc) {
         this.getProdInfoRcc = getProdInfoRcc;
     }
 
-    public boolean isGetSystemInfo() {
+    public String isGetSystemInfo() {
         return getSystemInfo;
     }
 
-    public void setGetSystemInfo(boolean getSystemInfo) {
+    public void setGetSystemInfo(String getSystemInfo) {
         this.getSystemInfo = getSystemInfo;
+    }
+
+    public List<String> getContentFilter() {
+        return contentFilter;
+    }
+
+    public void setContentFilter(List<String> contentFilter) {
+        this.contentFilter = contentFilter;
+    }
+
+    public List<String> getFolderFilter() {
+        return folderFilter;
+    }
+
+    public void setFolderFilter(List<String> folderFilter) {
+        this.folderFilter = folderFilter;
+    }
+
+    public List<String> getFileNameFilter() {
+        return fileNameFilter;
+    }
+
+    public void setFileNameFilter(List<String> fileNameFilter) {
+        this.fileNameFilter = fileNameFilter;
     }
 }

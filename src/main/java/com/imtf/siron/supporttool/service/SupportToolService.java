@@ -1,5 +1,6 @@
 package com.imtf.siron.supporttool.service;
 
+import com.imtf.siron.supporttool.constant.SensitiveFileContents;
 import com.imtf.siron.supporttool.constant.SironProductConfig;
 import com.imtf.siron.supporttool.constant.SupportToolConfig;
 import com.imtf.siron.supporttool.constant.SupportToolConstant;
@@ -13,9 +14,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
@@ -37,6 +37,12 @@ public class SupportToolService {
     @Inject
     FileHelper fileHelper;
 
+    @Inject
+    SupportToolConfigService supportToolConfigService;
+
+    @Inject
+    SensitiveFileContents sensitiveFileContents;
+
     public String createTempDirectory() {
 
         logger.info("Creating temporary directory");
@@ -56,19 +62,23 @@ public class SupportToolService {
 
     public Map<SironProductType, String> getInstalledProducts() {
 
-        Map<String, String> environmentVariables = new HashMap<>(operatingSystemHelper.getEnvironmentVariables());
-        Set<String> environmentKeyValue = environmentVariables.keySet();
+        List<Pattern> contentFilter = supportToolConfigService.getSensitivePatterns();
+        if (!contentFilter.isEmpty()) {
+            sensitiveFileContents.addCustomSensitivePatterns(contentFilter);
+        }
 
-        return environmentVariables.entrySet().stream()
-                .filter(entry -> {
-                    SironProductType type = sironProductConfig.getProductTypeByRoot(entry.getKey());
-                    String path = entry.getValue();
-                    return type != null && path != null && new File(path).exists();
+        return operatingSystemHelper.getEnvironmentVariables().entrySet().stream()
+                .map(entry -> {
+                    SironProductType sironProductType = sironProductConfig.getProductTypeByRoot(entry.getKey());
+                    String sironProductPath = entry.getValue();
+                    if (sironProductType != null && sironProductPath != null && new File(sironProductPath).exists()) {
+                        logger.info("Found product Installation {} at path: {}", sironProductType, sironProductPath);
+                        return Map.entry(sironProductType, sironProductPath);
+                    }
+                    return null;
                 })
-                .collect(Collectors.toMap(
-                        entry -> sironProductConfig.getProductTypeByRoot(entry.getKey()),
-                        Map.Entry::getValue
-                ));
+                .filter(Objects::nonNull)
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
 
